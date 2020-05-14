@@ -49,10 +49,10 @@ class SqlConnection(object):
 
 
 #obj = SqlConnection(user='root',password='P@ssword1',host = '127.0.0.1')
-obj = SqlConnection(user='databot_server_connection',password='Pa$$$$0521',host = '192.168.1.6')
 obj.create_database(DB_NAME='IAMDB')
 
 
+####### Querying Table ###############
 
 select_template = """
 SELECT *
@@ -61,13 +61,8 @@ IAMDB.iamdb_tbl
 """
 
 val = obj.read_query(select_template)
-
-
 for i in val.fetchall():
 	print(i)
-# 	break
-
-
 
 
 
@@ -98,17 +93,5 @@ for i in val.fetchall():
 # obj.insert_data(table_template,input_data)
 
 
-###### Extract Data ########
 
 
-
-
-
-
-"""
-DDL (Data Definition Language): CREATE, ALTER, DROP (cannot rollback, delete including constraints), RENAME and TRUNCATE (cannot rollback, delete all data except for constraints)
-ex. CREATE DATABASE / CREATE TABLE etc.
-
-DML(Data Manipulation Language): SELCT, INSERT, UPDATE, DELETE (You can Rollback, can use where)
-
-"""
